@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DocuStudio AI</title><link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top"><div class="brand">🎬 DocuStudio <span>AI</span></div><div class="tag">استوديو صناعة المحتوى</div></header>
+<main>
+<section class="hero">
+  <div><p class="eyebrow">من الفكرة إلى قصة مرئية</p><h1>حوّل أفكارك إلى<br><span>مشاريع فيديو منظمة</span></h1>
+  <p class="lead">أنشئ مشاريعك، رتّب المشاهد، واكتب السيناريو والترجمات في مساحة عمل واحدة.</p></div>
+  <div class="hero-art">🎥<small>YOUR STORY STARTS HERE</small></div>
+</section>
+<section class="workspace">
+  <div class="section-head"><div><h2>مشاريعك</h2><p>نظّم أفكارك وابدأ مشروعاً جديداً</p></div><span class="count">{{ projects|length }} مشاريع</span></div>
+  <form class="create" action="/projects" method="post">
+    <input name="title" placeholder="اسم المشروع الجديد" required>
+    <input name="description" placeholder="وصف مختصر (اختياري)">
+    <button type="submit">＋ إنشاء مشروع</button>
+  </form>
+  <div class="cards">
+  {% for p in projects %}
+    <article class="project"><div class="project-icon">▣</div><div class="project-body"><h3>{{ p.title }}</h3><p>{{ p.description }}</p><div class="meta">عدد المشاهد: {{ p.scenes|length }}</div></div><span class="arrow">←</span></article>
+  {% endfor %}
+  </div>
+</section>
+<section class="features">
+  <article><b>01</b><h3>تخطيط المشاهد</h3><p>قسّم فكرتك إلى مشاهد مرتبة.</p></article>
+  <article><b>02</b><h3>السيناريو</h3><p>حضّر النصوص والحوار لكل مشهد.</p></article>
+  <article><b>03</b><h3>الترجمات SRT</h3><p>جهّز ملفات الترجمة لمشروعك.</p></article>
+  <article><b>04</b><h3>ملفات الوسائط</h3><p>نظّم مواردك وملفاتك في مكان واحد.</p></article>
+</section>
+<footer>DocuStudio AI · نسخة تأسيسية قابلة للتطوير</footer>
+</main>
+</body></html>
